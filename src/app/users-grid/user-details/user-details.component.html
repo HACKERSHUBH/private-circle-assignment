@@ -1,0 +1,9 @@
+<div *ngIf="rowDetail?.details && rowDetail?.details.length > 0" class="mt-40">
+    <!-- {{rowDetail?.details | json}} -->
+    <div *ngFor="let detail of rowDetail?.details">
+        <p>{{detail}}</p>
+    </div>
+</div>
+<div *ngIf="rowDetail?.details.length === 0">
+  No Description yet
+</div>

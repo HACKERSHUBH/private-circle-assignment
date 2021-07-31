@@ -1,0 +1,31 @@
+.p-30 {
+    padding: 30px;
+}
+.mr-15 {
+    margin-right: 15px;
+}
+.ml-75 {
+    margin-left: 75px;
+}
+.visibility-hidden {
+    visibility: hidden;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.pb-0 {
+    padding-bottom: 0px;
+}
+.pt-15 {
+    padding-top:15px;
+}
+.pt-20 {
+    padding-top:20px
+}
+::ng-deep {
+    .clr-input-wrapper {
+        input{
+            width: 18rem;
+        }
+    }
+  }

@@ -1,0 +1,53 @@
+<div class="clr-row">
+  <div class="clr-col-9 p-30 pb-0 pt-20">
+    <button class="btn btn-primary">Primary</button>
+    &nbsp;&nbsp;&nbsp;
+    <clr-icon shape="filter-grid"></clr-icon>
+    &nbsp;
+    <span>Saved Filter</span>
+    &nbsp;&nbsp;&nbsp;
+    <clr-icon shape="history"></clr-icon>
+    &nbsp;
+    <span>Search history</span>
+  </div>
+  <div class="clr-col-3">
+    <div class="clr-form-control">
+        <div class="clr-control-container">
+          <div class="clr-input-wrapper">
+            <input type="text" id="example1" placeholder="Search Items" class="clr-input"  (change)="filterChangeHandler(searchKey)" [(ngModel)]="searchKey"/>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="clr-row">
+    <div class="clr-col-9 p-30 pt-15">
+        <clr-datagrid>
+            <clr-dg-column [clrDgField]="'date'">DATE</clr-dg-column>
+            <clr-dg-column [clrDgField]="'name'">NAME</clr-dg-column>
+            <clr-dg-column [clrDgField]="'entities'">NO.OF ENTITIES</clr-dg-column>
+            <clr-dg-column>ACTIONS</clr-dg-column>
+        
+            <clr-dg-row *clrDgItems="let user of userList">
+                <clr-dg-cell>{{user.date}}</clr-dg-cell>
+                <clr-dg-cell>{{user.name}}</clr-dg-cell>
+                <clr-dg-cell>{{user.entities}}</clr-dg-cell>
+                <clr-dg-cell>
+                    <clr-icon shape="envelope" class="mr-15"></clr-icon>
+                    <clr-icon shape="share" class="mr-15" [ngClass]="user.entities > 0?'': 'visibility-hidden'"></clr-icon>
+                    <clr-icon shape="highlighter" class="mr-15" [ngClass]="user.entities > 0?'': 'visibility-hidden'"></clr-icon>
+                    <clr-icon shape="trash" class="mr-15" [ngClass]="user.entities > 0?'': 'visibility-hidden'"></clr-icon>
+                    <button class="btn ml-75" (click)="onClickDetails(user)">
+                        Details
+                    </button>
+                </clr-dg-cell>
+            </clr-dg-row>
+        
+            <clr-dg-footer>{{userList.length}} users</clr-dg-footer>
+        </clr-datagrid>
+    </div>
+    <div class="clr-col-3">
+      <app-user-details  [rowDetail]="detailsData"></app-user-details>
+    </div>
+  </div>
